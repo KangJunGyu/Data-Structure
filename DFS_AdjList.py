@@ -7,6 +7,7 @@ def dfs_stack(graph, start, visited):
             visited[node] = True
             print(node, end=' ')
             stack.extend(reversed(graph[node]))
+            ''' reversed -> 탐색 순서가 유지되어야 할 때'''
 
 def dfs_recursive(graph, node, visited):
     visited[node] = True
