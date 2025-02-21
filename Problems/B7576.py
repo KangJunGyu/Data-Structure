@@ -31,13 +31,14 @@ while queue:
         queue.append((x, y + 1))
 
 day = 0
-flg = 0
+flg = 1
 for i in tomato:
     if 0 in i:
-        print(-1)
-        flg = 1
+        flg = 0
     else:
         day = max(day, max(i))
 
-if not flg:
+if flg:
     print(day - 1)
+else:
+    print(-1)
