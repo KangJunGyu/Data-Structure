@@ -5,13 +5,12 @@ class MaxHeap:
     def insert(self, val):
         self.heap.append(val)
         child = len(self.heap) - 1
-        parent = child // 2
-        while parent != 1:
+
+        while child > 0:
+            parent = (child - 1) // 2
             if self.heap[parent] < self.heap[child]:
                 self.heap[parent], self.heap[child] = self.heap[child], self.heap[parent]
-
                 child = parent
-                parent = child // 2
 
             else:
                 break
@@ -23,8 +22,8 @@ class MaxHeap:
             return self.heap.pop()
 
         parent = 0
-        rtn_val = self.heap[0]
-        self.heap[0] = self.heap.pop()
+        rtn_val = self.heap[parent]
+        self.heap[parent] = self.heap.pop()
 
         while parent < len(self.heap):
             left_child = 2 * parent + 1
@@ -51,12 +50,10 @@ mh.insert(30)
 mh.insert(20)
 mh.insert(40)
 mh.insert(50)
-for i in mh.heap:
-    print(i)
+print(' -> '.join(map(str, mh.heap)))
 
 print("------------")
 print(mh.extract())
 print("------------")
 
-for i in mh.heap:
-    print(i)
+print(' -> '.join(map(str, mh.heap)))
