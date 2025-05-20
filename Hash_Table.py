@@ -30,10 +30,10 @@ class HashTable():
     def get(self, key):
         idx = self._hash_function(key)
         node = self.table[idx]
-        while node is not None: # Chaining 된 경우
+        while node is not None:
             if node.key == key:
                 return node.val
-            node = node.next
+            node = node.next # Chaining 된 경우
         return None
 
     def remove(self, key):
