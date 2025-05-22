@@ -6,8 +6,6 @@ def nqueen(n):
     # 퀸을 배치할 수 있는가
     def is_safe(row):
         for i in range(row):
-            print('check[i] == ', check[i])
-            print('check[row] == ', check[row])
             # 같은 열에 이미 퀸이 배치된 경우
             if check[i] == check[row]:
                 return False # pruning
@@ -31,11 +29,8 @@ def nqueen(n):
         # 그렇지 않은 경우
         for col in range(n):
             check[row] = col
-            print('check[', row, '] = ', col)
             if is_safe(row): # pruning 되지 않은 경우 - dfs 탐색 지속
                 dfs(row + 1)
-            else: print('Pruning')
-
 
     dfs(0) # 첫 행부터 시작 - 프로그램 시작
 
